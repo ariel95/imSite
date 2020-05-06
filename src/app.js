@@ -17,7 +17,7 @@ app.engine('.hbs',exphbs({
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs'
 }));
-app.set('view-engine', '.hbs');
+app.set('view engine', '.hbs');
 
 // Middlewares
 app.use(morgan('dev'));
@@ -31,8 +31,11 @@ const storage = multer.diskStorage({
 })
 app.use(multer({storage}).single('image')); //Images
 
-
 // Routes
 app.use(require('./routes')); //Busca el archivo index.js dentro de routes
+
+//Serves static files (we need it to import a css file)
+app.use(express.static(path.join(__dirname,'public')));
+
 
 module.exports = app;
