@@ -12,9 +12,12 @@ cloudinary.config({
 
 const fs = require('fs-extra');
 
-router.get('/', (req,res) => {
-    res.render('images');
+router.get('/', async (req,res) => {
+    const photos = await Photo.find();
+    console.log(photos);
+    res.render('images', {photos});
 });
+
 router.get('/images/add', (req,res) => {
     res.render('image_form');
 });
