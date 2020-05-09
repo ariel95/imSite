@@ -15,11 +15,12 @@ const fs = require('fs-extra');
 router.get('/', async (req,res) => {
     const photos = await Photo.find();
     console.log(photos);
-    res.render('images', {photos});
+    res.render('images', { photos: photos.map(kitten => kitten.toJSON())});
 });
 
-router.get('/images/add', (req,res) => {
-    res.render('image_form');
+router.get('/images/add', async (req,res) => {
+    const photos = await Photo.find();
+    res.render('image_form', { photos: photos.map(kitten => kitten.toJSON())});
 });
 router.post('/images/add', async (req,res) =>{
     const {title, description} = req.body;
