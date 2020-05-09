@@ -1,5 +1,14 @@
-{{#each photos}}
-    <img src="{{this.imageUrl}}" alt="">
-{{/each}}
+<!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+        {{#each photos}}
+        <img src="{{this.imageUrl}}" alt="" class="swiper-slide">
+        {{/each}}
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  
 
 

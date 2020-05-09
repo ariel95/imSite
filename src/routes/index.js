@@ -14,18 +14,17 @@ const fs = require('fs-extra');
 
 router.get('/', async (req,res) => {
     const photos = await Photo.find();
-    console.log(photos);
     res.render('images', { photos: photos.map(kitten => kitten.toJSON())});
 });
 
 router.get('/images/add', async (req,res) => {
+    console.log('get images addd');
     const photos = await Photo.find();
     res.render('image_form', { photos: photos.map(kitten => kitten.toJSON())});
 });
 router.post('/images/add', async (req,res) =>{
     const {title, description} = req.body;
     const result = await cloudinary.v2.uploader.upload(req.file.path); // Async 
-    console.log(result);
     const newPhoto = new Photo({
         title,
         description,
@@ -35,6 +34,13 @@ router.post('/images/add', async (req,res) =>{
     await newPhoto.save();
     await fs.unlink(req.file.path); //erase the file from the server
 
-    res.send('recived');
+    res.redirect('/images/add');
 })
+router.get('/images/delete/:photo_id', async(req,res) => {
+    const {photo_id} = req.params;
+    const photo = await Photo.findByIdAndDelete(photo_id);
+    cloudinary.v2.uploader.destroy(photo.public_id);
+    res.redirect('/images/add');
+})
+
 module.exports = router;
