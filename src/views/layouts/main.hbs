@@ -15,7 +15,7 @@
 <body>
     <!--Navigation-->
     {{> navigation }}
-    <div class="container p-4">
+    <div class="container pb-4 pt-4">
         {{{body}}}
     </div>
     <!--Swiper scripts-->
@@ -35,6 +35,10 @@
             },
             pagination: {
                 el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
         });
     </script>

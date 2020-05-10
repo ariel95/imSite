@@ -1,5 +1,20 @@
 # imSite
-This proyect will be an app like Pinterest
+With this site you will be able to publish your pictures.
+
+# Back-end
+NodeJS
+
+# Front-end
+CSS 3
+Boostrap 4
+Boostswatch
+Swiperjs
+
+# Data Base
+Mongo DB
+
+# Images server
+Cloudinary
 
 # Modules
 express (server)
@@ -10,6 +25,9 @@ mongoose (connection and modeling db)
 cloudinary (server of cloudinary)
 dotenv (read files .env)
 cross-env ()
+fs-extra
+
+# Dev Modules
 nodemon
 colors
 
