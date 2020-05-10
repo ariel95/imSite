@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/css/site/images.css">
     <!--Swiper-->
     <link rel="stylesheet" href="/css/swipe.css">
+    
+    <!-- JS -->
+    <script src="/scripts/jquery.min.js"></script>
+
     <title>ImSite</title>
 </head>
 
@@ -18,32 +22,11 @@
     <div class="container pb-4 pt-4">
         {{{body}}}
     </div>
+
     <!--Swiper scripts-->
-    <script src="/scripts/swipe.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            spaceBetween:10,
-            loop:true,
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
     </script>
+    
 </body>
 
 </html>
